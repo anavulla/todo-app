@@ -1,0 +1,39 @@
+<ngx-spinner bdColor="rgba(0,0,0,0.8)" size="medium" color="#fff" type="square-jelly-box" [fullscreen]="true">
+    <p style="color: white"> Loading...</p>
+</ngx-spinner>
+<input [(ngModel)]="searchText" placeholder=" Search within To-Do items ..... ">
+<p></p>
+
+<table class="table table-hover" matSort (matSortChange)="sortData($event)" matSortActive="env" matSortDirection="asc"
+    matSortDisableClear>
+    <tr>
+        <th mat-sort-header="name">To-Do Item</th>
+        <th mat-sort-header="is_done">Done?</th>
+        <th colspan="3">Actions
+            <a routerLink="item/add">
+                <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
+            </a>
+        </th>
+    </tr>
+
+    <tbody>
+        <tr
+            *ngFor="let item of items |  grdFilter: {name: searchText, is_done:searchText} | paginate: { itemsPerPage: 12, currentPage: p }  ">
+            <td>{{ item.name }}</td>
+            <td>
+                <mat-slide-toggle (change)="updateItem(item)" [(ngModel)]="item.is_done">
+                </mat-slide-toggle>
+            </td>
+            <td><a (click)="viewItem(item)">
+                    <fa-icon [icon]="faEye"></fa-icon>
+                </a></td>
+            <td><a [routerLink]="['item/get', item.itemId]">
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                </a></td>
+            <td><a (click)="deleteItem(item)">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </a></td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

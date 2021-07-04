@@ -1,0 +1,46 @@
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        <form [formGroup]="itemForm" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">To-Do Item</label>
+                <input type="text" class="form-control" formControlName="name" #name [(ngModel)]="item.name" />
+            </div>
+            <div *ngIf="itemForm.controls['name'].invalid && (itemForm.controls['name'].dirty || itemForm.controls['name'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="itemForm.controls['name'].errors.required">
+                    To-Do Item Name is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Details</label>
+                <input type="text" class="form-control" formControlName="details" #details [(ngModel)]="item.details" />
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Done? </label>
+                <p style="text-align:right">
+                    <mat-slide-toggle formControlName="is_done" #is_done [(ngModel)]="item.is_done">
+                    </mat-slide-toggle>
+                </p>
+            </div>
+            <div *ngIf="itemForm.controls['is_done'].invalid && (itemForm.controls['is_done'].dirty || itemForm.controls['is_done'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="itemForm.controls['is_done'].errors.required">
+                    To-Do Item Done status is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="to_do_date" formControlName="to_do_date"
+                        [(ngModel)]="item.to_do_date">
+                    <mat-datepicker-toggle matSuffix [for]="to_do_date"></mat-datepicker-toggle>
+                    <mat-datepicker #to_do_date></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-group text-right">
+                <button routerLink="" class="btn btn-default">Cancel</button> &nbsp;&nbsp;&nbsp;
+                <button (click)="updateItem(item)" [disabled]="itemForm.invalid" class="btn btn-primary">Update
+                    Item</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <tr>
+        <th>To-Do Item</th>
+        <th>Done?</th>
+        <th>Details</th>
+        <th>To-Do Date</th>
+    </tr>
+
+    <tbody>
+        <tr>
+            <td>
+                <div [innerHTML]="name"></div>
+            </td>
+            <td>
+                <div [innerHTML]="is_done"></div>
+            </td>
+            <td>
+                <div [innerHTML]="details"></div>
+            </td>
+            <td>
+                <div [innerHTML]="to_do_date"></div>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button mat-primary" (click)="close()">Ok</button>
+</mat-dialog-actions>
