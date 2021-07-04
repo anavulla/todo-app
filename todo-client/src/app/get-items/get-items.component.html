@@ -1,11 +1,17 @@
 <ngx-spinner bdColor="rgba(0,0,0,0.8)" size="medium" color="#fff" type="square-jelly-box" [fullscreen]="true">
     <p style="color: white"> Loading...</p>
 </ngx-spinner>
-<input [(ngModel)]="searchText" placeholder=" Search within To-Do items ..... ">
+<p></p>
+<input class="form-control form-control-sm ml-3 w-80 form-rounded" type="text"  [(ngModel)]="searchText" placeholder=" Search within To-Do items ..... ">
 <p></p>
 
-<table class="table table-hover" matSort (matSortChange)="sortData($event)" matSortActive="env" matSortDirection="asc"
-    matSortDisableClear>
+<p style="text-align: right;">
+    <mat-checkbox (change)="showOptions($event)" >Hide Done To-Do Items</mat-checkbox>
+</p>
+
+
+<table class="table table-hover" matSort (matSortChange)="sortData($event)" matSortActive="is_done"
+    matSortDirection="asc" matSortDisableClear>
     <tr>
         <th mat-sort-header="name">To-Do Item</th>
         <th mat-sort-header="is_done">Done?</th>

@@ -9,6 +9,7 @@ import Item from '../_models/Item';
 import { faPlusCircle, faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ViewItemComponent } from '../view-item/view-item.component';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-get-items',
@@ -102,6 +103,16 @@ export class GetItemsComponent implements OnInit {
     });
     this.spinner.hide();
   }
+
+  showOptions(event: MatCheckboxChange): void {
+    // set the event value to searchText for grdFilter to handle
+    if (event.checked) {
+      this.searchText = "false";
+    }else{
+      this.searchText = '';
+    }
+  }
+
 }
 
 

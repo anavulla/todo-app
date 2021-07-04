@@ -2,7 +2,6 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
-
 .mat-sort-header-arrow {
     color: #fff !important;
 }
@@ -13,6 +12,10 @@
 
 .mat-tooltip {
     font-size: 14px !important;
+}
+
+.form-rounded {
+    border-radius: 1rem;
 }
 
 .content {

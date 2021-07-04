@@ -13,7 +13,8 @@
             </div>
             <div class="form-group">
                 <label class="col-md-4">Details</label>
-                <input type="text" class="form-control" formControlName="details" #details [(ngModel)]="item.details" />
+                <textarea class="form-control form-rounded" rows="3" formControlName="details" #details
+                    [(ngModel)]="item.details"></textarea>
             </div>
             <div class="form-group">
                 <label class="col-md-4">Done? </label>

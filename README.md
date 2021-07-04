@@ -1,6 +1,6 @@
 
 The `todo-api` app leverages Java 8 RESTful Web Services to store and retrieve data using MySQL.
-The `todo-client` app leverages angular 10 to todo-api app.
+The `todo-client` app leverages angular 10 to make RESTful API calls to todo-api app.
 
 
 # To-Do API
@@ -78,6 +78,9 @@ The client app can be accessible on http://localhost:4200 (assuming 4200 is defa
 ### toggle to mark to-do item as done 
 ##### (more items added)
 ![Screenshots](screenshots/toggle_done.png)
+
+### hide done items
+![Screenshots](screenshots/hide_done.png)
 
 ### search
 ![Screenshots](screenshots/search.png)

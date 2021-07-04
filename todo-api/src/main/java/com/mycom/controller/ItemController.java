@@ -21,6 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mycom.model.Item;
 import com.mycom.repository.ItemRespository;
 
+/**
+ * @author anavulla
+ *
+ */
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ItemController {
@@ -30,6 +34,9 @@ public class ItemController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ItemController.class);
 
+	/**
+	 * @return
+	 */
 	@GetMapping(path = "/item", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Item>> getItems() {
 		List<Item> items = null;
@@ -48,6 +55,10 @@ public class ItemController {
 
 	}
 
+	/**
+	 * @param item
+	 * @return
+	 */
 	@PostMapping(path = "/item/add", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public ResponseEntity<Item> addItem(@RequestBody Item item) {
@@ -72,6 +83,10 @@ public class ItemController {
 
 	}
 
+	/**
+	 * @param itemId
+	 * @return
+	 */
 	@GetMapping(path = "/item/get/{itemId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Item> getItemById(@PathVariable String itemId) {
 		Item item = null;
@@ -90,6 +105,10 @@ public class ItemController {
 
 	}
 	
+	/**
+	 * @param item
+	 * @return
+	 */
 	@PostMapping(path = "/item/delete", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Item> deleteItem(@RequestBody Item item) {
 		try {
